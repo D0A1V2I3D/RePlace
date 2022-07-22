@@ -1,8 +1,8 @@
 package the.david.replace;
 
-import org.bukkit.command.Command;
 import org.bukkit.plugin.java.JavaPlugin;
 import the.david.replace.commands.*;
+import the.david.replace.events.PlayerPlace;
 
 public final class RePlace extends JavaPlugin {
 
@@ -10,6 +10,7 @@ public final class RePlace extends JavaPlugin {
     public void onEnable() {
         this.getCommand("rp").setExecutor(new CommandRP());
         this.getCommand("rp").setTabCompleter(new ConstructTabCompleter());
+        getServer().getPluginManager().registerEvents(new PlayerPlace(), this);
 
     }
 

@@ -6,7 +6,7 @@
 
     <groupId>the.david.replace</groupId>
     <artifactId>replace</artifactId>
-    <version>0.1</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>RePlace</name>
@@ -34,6 +34,7 @@
                 <version>3.2.4</version>
                 <executions>
                     <execution>
+                        <id>shade</id>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
@@ -43,6 +44,12 @@
                         </configuration>
                     </execution>
                 </executions>
+<!--                <configuration>
+                    <relocations>
+                        <pattern>de.tr7zw.changeme.nbtapi</pattern>
+                        <shadedPattern>the.david.replace.nbtapi</shadedPattern>
+                    </relocations>
+                </configuration>          -->
             </plugin>
         </plugins>
         <resources>

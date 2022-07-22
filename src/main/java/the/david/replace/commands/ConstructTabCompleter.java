@@ -3,8 +3,6 @@ package the.david.replace.commands;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +23,7 @@ public class ConstructTabCompleter implements TabCompleter {
             list.add("east");
             list.add("south");
             list.add("west");
+            list.add("off");
         }
         return list;
     }

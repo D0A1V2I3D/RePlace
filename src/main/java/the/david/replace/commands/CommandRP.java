@@ -1,7 +1,6 @@
 package the.david.replace.commands;
 
-import de.tr7zw.changeme.nbtapi.NBTItem;
-import net.kyori.adventure.text.Component;
+import ed.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,10 +8,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.inventory.meta.ItemMeta;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class CommandRP implements CommandExecutor {
     public void replaceItem(ItemStack item, PlayerInventory inv, String replace) {
@@ -60,6 +55,7 @@ public class CommandRP implements CommandExecutor {
                 } else {
                     player.sendMessage("Item that you are holding doesnt have rotato thinkey on it so cant remove it.");
                 }
+                return true;
             case "mode":
                 if (!(args.length >= 2)) {
                     if (nbtItem.hasTag("RPWrench")) {
@@ -101,6 +97,10 @@ public class CommandRP implements CommandExecutor {
                         return true;
                     case "west":
                         nbtItem.setString("RPWrench", "west");
+                        replaceItem(nbtItem.getItem(), inv, replace);
+                        return true;
+                    case "off":
+                        nbtItem.setString("RPWrench", "off");
                         replaceItem(nbtItem.getItem(), inv, replace);
                         return true;
                     default:
